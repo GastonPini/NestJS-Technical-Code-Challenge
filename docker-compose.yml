@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    container_name: aladia_mongo
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: aladia_db
+    volumes:
+      - mongo_data:/data/db
+
+  authentication:
+    build:
+      context: .
+      dockerfile: apps/authentication/Dockerfile
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/aladia_db
+      - AUTH_TCP_PORT=8877
+    ports:
+      - "8877:8877"
+
+  gateway:
+    build:
+      context: .
+      dockerfile: apps/gateway/Dockerfile
+    depends_on:
+      - authentication
+    environment:
+      - AUTH_TCP_PORT=8877
+      - PORT_GATEWAY=3000
+    ports:
+      - "3000:3000"
+volumes:
+  mongo_data:

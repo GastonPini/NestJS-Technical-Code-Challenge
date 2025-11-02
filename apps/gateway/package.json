@@ -1,0 +1,9 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "ts-node apps/gateway/src/main.ts"
+  }
+}
