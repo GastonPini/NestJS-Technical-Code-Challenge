@@ -12,7 +12,7 @@ export class User {
   name: string;
 
   @Prop({ required: true })
-  password: string; // in real projects store hash
+  password: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

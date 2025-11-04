@@ -11,7 +11,7 @@ import { AuthService } from './auth.service';
         transport: Transport.TCP,
         options: {
           host: '127.0.0.1',
-          port: parseInt(process.env.AUTH_TCP_PORT || '8877', 10),
+          port: parseInt(process.env.AUTH_TCP_PORT || '8877', 10), ///
         },
       },
     ]),

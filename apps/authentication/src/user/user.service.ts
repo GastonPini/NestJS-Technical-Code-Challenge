@@ -12,7 +12,7 @@ export class UserService {
     try {
       this.logger.debug(`Creating user: ${JSON.stringify(dto)}`);
 
-      const exists = await this.repo.findByEmail(dto.email);
+      const exists = await this.repo.findByEmail(dto.email); ///
       if (exists) {
         throw new BadRequestException('Email already registered');
       }

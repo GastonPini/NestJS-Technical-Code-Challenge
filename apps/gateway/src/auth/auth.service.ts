@@ -11,7 +11,7 @@ export class AuthService {
 
   async registerUser(dto: RegisterUserDto) {
     try {
-      const response$ = this.client.send({ cmd: 'register-user' }, dto);
+      const response$ = this.client.send({ cmd: 'register-user' }, dto); ///
       return await lastValueFrom(response$);
     } catch (error) {
       // Log para debug (puedes dejar o quitar)

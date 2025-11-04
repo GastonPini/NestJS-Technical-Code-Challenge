@@ -6,10 +6,10 @@ dotenvConfig();
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(AppModule, {
-    transport: Transport.TCP,
+    transport: Transport.TCP, ///
     options: {
       host: '0.0.0.0',
-      port: parseInt(process.env.AUTH_TCP_PORT || '8877', 10),
+      port: parseInt(process.env.AUTH_TCP_PORT || '8877', 10), ///
     },
   });
 
